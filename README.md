@@ -1,6 +1,6 @@
 # Rails-tools
 Some files used for Rails projects
 
-1- deploy.rb
+<b>1- deploy.rb</b>
 
 Configuration file for deploy with Mina.
