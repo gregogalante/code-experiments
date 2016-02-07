@@ -46,6 +46,6 @@ end
 # ------------------------------------------
 
 # Riavvia il server
-task :restart
+task :restart do
   queue 'sudo service nginx restart'
 end
