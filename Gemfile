@@ -14,6 +14,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'rails-i18n'
 # database
 gem 'sqlite3'
+# deploy
+gem 'mina'
 
 # Development gems
 group :development do
