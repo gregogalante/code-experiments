@@ -8,6 +8,9 @@ require 'mina/git'
 set :rails_env, 'production'
 set :term_mode, :system
 
+# CONDIVISIONE DATI TRA RELEASE
+set :shared_paths, ['public/system']
+
 # DATI PER IL DEPLOY DA REPOSITORY
 set :domain,     'ip_server'
 set :deploy_to,  "/home/deploy/applications/nome_app"
@@ -35,6 +38,7 @@ task :deploy => :environment do
     invoke :'bundle:install'
     invoke :'rails:db_migrate'
     invoke :'rails:assets_precompile:force'
+    invoke :'deploy:link_shared_paths'
 
     to :launch do
       queue "touch #{deploy_to}/#{current_path}/tmp/restart.txt"
