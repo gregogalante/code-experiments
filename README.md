@@ -1,10 +1,10 @@
-# Rails-tools
-Some files used for Rails projects
+# Config-files
+Some files used for web projects
 
-<b>1- deploy.rb</b>
+## deploy.rb
 
-Configuration file for deploy with Mina.
+Configuration file to deploy Ruby on Rails applications with Mina deploy.
 
-<b>2- Gemfile</b>
+## Gemfile
 
-Basic gemfile for new projects
+Basic gemfile for new Ruby on Rails projects.
