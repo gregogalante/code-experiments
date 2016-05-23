@@ -39,6 +39,7 @@ task :deploy => :environment do
     invoke :'rails:db_migrate:force'
     invoke :'rails:assets_precompile:force'
     invoke :'deploy:link_shared_paths'
+    invoke :'deploy:cleanup'
 
     to :launch do
       queue "touch #{deploy_to}/#{current_path}/tmp/restart.txt"
