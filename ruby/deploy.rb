@@ -54,21 +54,3 @@ end
 task :restart do
   queue 'sudo service nginx restart'
 end
-
-
-# Esegue le migrazioni in production
-task :migrate do
-  queue "cd #{deploy_to}/#{current_path}"
-  queue 'bundle exec rake db:migrate RAILS_ENV=production'
-end
-
-# Gestione bundle
-task :bundle_update do
-  queue "cd #{deploy_to}/#{current_path}"
-  queue 'bundle update'
-end
-
-task :bundle_install do
-  queue "cd #{deploy_to}/#{current_path}"
-  queue 'bundle install'
-end
