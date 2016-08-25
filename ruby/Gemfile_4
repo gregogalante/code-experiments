@@ -28,6 +28,8 @@ group :development do
   # console
   gem 'colorize'
   gem 'table_print'
+  # generate er
+  gem 'rails-erd'
 end
 
 # Production gems
