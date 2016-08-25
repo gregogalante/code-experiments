@@ -33,6 +33,8 @@ group :development do
   gem 'colorize'
   gem 'table_print'
   gem 'web-console' # using <%= console %> anywhere in the code.
+  # generate er
+  gem 'rails-erd'
 end
 
 # Production gems
