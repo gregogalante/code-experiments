@@ -28,6 +28,4 @@ module Obserbo
     @observers.delete(observer)
   end
 
-  # TODO: Create a Ruby gem
-
 end
