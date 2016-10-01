@@ -1,10 +1,10 @@
-# *** Obserbo ***
+# *** Observet ***
 # Simple observers support to rails models
 
 # Version 1.0
 # Gregorio Galante
 
-module Obserbo
+module Observet
 
   # initialize empty observers list
   def initialize_observers
