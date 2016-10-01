@@ -1,9 +1,6 @@
 # *** Observet ***
 # Simple observers support to rails models
 
-# Version 1.0
-# Gregorio Galante
-
 module Observet
 
   # initialize empty observers list
