@@ -24,9 +24,10 @@ set :ssh_options, '-A'
 set :forward_agent, true
 
 # TASK ENVIRONMENT
+# TASK ENVIRONMENT
 task :environment do
   # invoke :'rbenv:load'
-  # invoke :'rvm:use[ruby-1.9.3-p125@default]'
+  # invoke :'rvm:use', 'ruby-2.3.1'
 end
 
 # TASK DEPLOY
@@ -36,14 +37,10 @@ task :deploy => :environment do
     # Lista comdandi da eseguire al deploy
     invoke :'git:clone'
     invoke :'bundle:install'
-    invoke :'rails:db_migrate:force'
-    invoke :'rails:assets_precompile:force'
+    invoke :'rails', 'db_migrate:force'
+    invoke :'rails', 'assets_precompile:force'
     invoke :'deploy:link_shared_paths'
     invoke :'deploy:cleanup'
-
-    to :launch do
-      queue "touch #{deploy_to}/#{current_path}/tmp/restart.txt"
-    end
   end
 end
 
