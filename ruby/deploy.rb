@@ -37,8 +37,8 @@ task :deploy => :environment do
     # Lista comdandi da eseguire al deploy
     invoke :'git:clone'
     invoke :'bundle:install'
-    invoke :'rails', 'db_migrate:force'
-    invoke :'rails', 'assets_precompile:force'
+    invoke :'rails:db_migrate'
+    invoke :'rails:assets_precompile'
     invoke :'deploy:link_shared_paths'
     invoke :'deploy:cleanup'
   end
