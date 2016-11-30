@@ -14,8 +14,8 @@ set :shared_paths, ['db/production.sqlite3', 'public/system']
 
 # DATI PER IL DEPLOY DA REPOSITORY
 set :domain,     '80.255.6.110'
-set :deploy_to,  "/home/deploy/applications/tapfood-staging"
-set :repository, 'https://Antoniox22@bitbucket.org/ideonetwork/tapfood.git'
+set :deploy_to,  "/home/deploy/applications/application"
+set :repository, 'https://application.git'
 set :branch,     'master'
 
 # DATI PER L'ACCESSO ALLA REPOSITORY TRAMITE SSH
