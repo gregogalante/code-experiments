@@ -10,7 +10,7 @@ set :term_mode, :system
 set :execution_mode, :system
 
 # CONDIVISIONE DATI TRA RELEASE
-set :shared_paths, ['tmp', 'db/production.sqlite3', 'public/system']
+set :shared_paths, ['db/production.sqlite3', 'public/system']
 
 # DATI PER IL DEPLOY DA REPOSITORY
 set :domain,     '80.255.6.110'
