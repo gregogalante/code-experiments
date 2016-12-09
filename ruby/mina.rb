@@ -1,3 +1,5 @@
+# *** Mina deploy sample file ***
+
 require 'mina/bundler'
 require 'mina/rails'
 require 'mina/git'

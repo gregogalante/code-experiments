@@ -1,0 +1,26 @@
+{
+  "name": "Wp sample app",
+  "description": "Source code of a simple application to show wordpress posts",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start"
+  },
+  "dependencies": {
+    "axios": "^0.15.2",
+    "base-64": "^0.1.0",
+    "entities": "^1.1.1",
+    "native-base": "^0.5.13",
+    "react": "^15.3.2",
+    "react-native": "^0.38.0",
+    "react-native-drawer": "^2.3.0",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2",
+    "redux-logger": "^2.6.1",
+    "redux-thunk": "^2.1.0",
+    "striptags": "^2.1.1"
+  },
+  "devDependencies": {
+    "babel-preset-react-native": "^1.9.0"
+  }
+}
