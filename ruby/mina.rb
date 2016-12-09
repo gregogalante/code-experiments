@@ -4,19 +4,21 @@ require 'mina/bundler'
 require 'mina/rails'
 require 'mina/git'
 # require 'mina/rbenv'
-# require 'mina/rvm'
+require 'mina/rvm'
 
 # DATI BASE
-set :rails_env, 'production'
+set :rails_env, 'staging'
 set :term_mode, :system
+set :execution_mode, :system
 
 # CONDIVISIONE DATI TRA RELEASE
-set :shared_paths, ['public/system']
+set :shared_dirs, ['public/system']
+set :shared_files, ['db/production.sqlite3']
 
 # DATI PER IL DEPLOY DA REPOSITORY
-set :domain,     'ip_server'
-set :deploy_to,  "/home/deploy/applications/nome_app"
-set :repository, 'repository_applicazione'
+set :domain,     '80.255.6.110'
+set :deploy_to,  "/home/deploy/applications/application"
+set :repository, 'https://application.git'
 set :branch,     'master'
 
 # DATI PER L'ACCESSO ALLA REPOSITORY TRAMITE SSH
@@ -26,10 +28,9 @@ set :ssh_options, '-A'
 set :forward_agent, true
 
 # TASK ENVIRONMENT
-# TASK ENVIRONMENT
 task :environment do
   # invoke :'rbenv:load'
-  # invoke :'rvm:use', 'ruby-2.3.1'
+  invoke :'rvm:use', 'ruby-2.3.1'
 end
 
 # TASK DEPLOY
@@ -44,12 +45,4 @@ task :deploy => :environment do
     invoke :'deploy:link_shared_paths'
     invoke :'deploy:cleanup'
   end
-end
-
-# SPAZIO DISPONIBILE PER ALTRI TASK O HELPER
-# ------------------------------------------
-
-# Riavvia il server
-task :restart do
-  queue 'sudo service nginx restart'
 end
