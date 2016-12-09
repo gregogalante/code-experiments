@@ -14,3 +14,7 @@ Some files used for web projects.
 ## react-native
 
 * wp-sample-app - A source code of a react-native application to show wordpress posts to user (whit registration, login, comments).
+
+## node
+
+* TaskQueue.js - A simple module for parallel execution of tasks with limit of concurrency.
