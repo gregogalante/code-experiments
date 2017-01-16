@@ -16,8 +16,6 @@ gem 'turbolinks'
 gem 'rails-i18n'
 # database
 gem 'sqlite3'
-# deploy
-gem 'mina'
 
 # Development gems
 group :development do
