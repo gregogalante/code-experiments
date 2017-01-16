@@ -13,11 +13,8 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
-# database
+# Database
 gem 'sqlite3'
-
-# Deploy
-gem 'mina', '0.3'
 
 # Development gems
 group :development do
