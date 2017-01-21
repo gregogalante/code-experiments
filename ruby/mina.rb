@@ -6,38 +6,37 @@ require 'mina/git'
 # require 'mina/rbenv'
 require 'mina/rvm'
 
-# DATI BASE
+# Base datas
 set :rails_env, 'staging'
 set :term_mode, :system
 set :execution_mode, :system
 
-# CONDIVISIONE DATI TRA RELEASE
+# Shared path
 set :shared_dirs, ['public/system']
 set :shared_files, ['db/production.sqlite3']
 
-# DATI PER IL DEPLOY DA REPOSITORY
+# Deploy repository info
 set :domain,     '80.255.6.110'
 set :deploy_to,  "/home/deploy/applications/application"
 set :repository, 'https://application.git'
 set :branch,     'master'
 
-# DATI PER L'ACCESSO ALLA REPOSITORY TRAMITE SSH
+# Server info
 set :user, 'deploy'
 set :port, '22'
 set :ssh_options, '-A'
 set :forward_agent, true
 
-# TASK ENVIRONMENT
+# Env task
 task :environment do
   # invoke :'rbenv:load'
   invoke :'rvm:use', 'ruby-2.3.1'
 end
 
-# TASK DEPLOY
+# Deploy task
 task :deploy => :environment do
 
   deploy do
-    # Lista comdandi da eseguire al deploy
     invoke :'git:clone'
     invoke :'bundle:install'
     invoke :'rails:db_migrate'

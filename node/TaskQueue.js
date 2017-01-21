@@ -10,8 +10,8 @@
 
 // /////////////////////////////////////////////////////////////////////////////
 
-function TaskQueue () {
-  this.limit = 5
+function TaskQueue (limit) {
+  this.limit = limit
   this.running = 0
   this.queue = []
 }
