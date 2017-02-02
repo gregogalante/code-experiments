@@ -22,3 +22,4 @@ sudo gem install rails
 # Install other dependencies
 
 sudo apt-get install -y libmysqlclient-dev
+sudo apt-get install -y libsqlite3-dev
