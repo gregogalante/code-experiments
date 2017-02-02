@@ -13,11 +13,11 @@ rm -rf /tmp/ruby-build && \
 
 # Install bundler
 
-gem install bundler
+sudo gem install bundler
 
 # Install rails
 
-gem install rails
+sudo gem install rails
 
 # Install other dependencies
 
