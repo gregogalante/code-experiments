@@ -23,3 +23,4 @@ sudo gem install rails
 
 sudo apt-get install -y libmysqlclient-dev
 sudo apt-get install -y libsqlite3-dev
+sudo apt-get install -y nodejs
