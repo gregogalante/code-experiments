@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0'
+gem 'rails', '~> 5.0.1'
 gem 'puma', '~> 3.0'
 
 # Styles gems
@@ -24,12 +24,10 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # testing
   gem 'better_errors'
-  gem 'byebug', platform: :mri
   gem 'faker'
   # console
   gem 'colorize'
   gem 'table_print'
-  gem 'web-console' # using <%= console %> anywhere in the code.
   # generate er
   gem 'rails-erd'
 end
