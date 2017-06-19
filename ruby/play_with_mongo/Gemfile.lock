@@ -1,0 +1,16 @@
+PATH
+  remote: ../lib
+  specs:
+    mongo (2.4.2)
+
+GEM
+  specs:
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  mongo (= 2.4.2)!
+
+BUNDLED WITH
+   1.15.0
