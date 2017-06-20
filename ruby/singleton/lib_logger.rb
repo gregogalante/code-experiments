@@ -1,7 +1,7 @@
 require 'singleton'
 
 # Logger class.
-class Logger
+class LibLogger
 
   include Singleton
 
@@ -14,5 +14,3 @@ class Logger
   end
 
 end
-
-Logger.instance.log('message')

@@ -9,24 +9,8 @@
 # or that restrict the instantiation to a certain number of objects. The term comes
 # from the mathematical concept of a singleton.
 
-# Logger class.
-class Logger
-
-  def initialize
-    @log = File.open('log.txt', 'a')
-  end
-
-  @@instance = Logger.new
-
-  def self.instance
-    @@instance
-  end
-
-  def log(msg)
-    @log.puts(msg)
-  end
-
-  private_class_method :new # new is private so it's not possible to create new objects.
-end
+require_relative './logger'
+require_relative './lib_logger'
 
 Logger.instance.log('message')
+LibLogger.instance.log('message')
