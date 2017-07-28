@@ -9,7 +9,7 @@ const Class = function (attribute) {
 
 /**
  * method()
- * Example of method.s
+ * Example of method.
  */
 Class.prototype.method = function () {
   console.log(this.attribute)
