@@ -8,3 +8,18 @@ docker rm $(docker ps -a -q)
 
 # Delete all images
 docker rmi $(docker images -q)
+
+# List all images
+docker images
+
+# List all containers
+docker ps -a
+
+# List all running containers
+docker ps
+
+# Build a new image (created with a Dockerfile)
+docker build -t image-name .
+
+# Create a container and run it with specific port
+docker run -d -p 3000:3000 image-name
