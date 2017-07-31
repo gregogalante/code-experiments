@@ -22,4 +22,7 @@ docker ps
 docker build -t image-name .
 
 # Create a container and run it with specific port
+docker run -p 3000:3000 image-name
+
+# Create a container and run it as deamon with specific port
 docker run -d -p 3000:3000 image-name

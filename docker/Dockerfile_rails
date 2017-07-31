@@ -1,0 +1,20 @@
+# Base image (https://hub.docker.com/r/library/ruby/)
+FROM ruby:latest
+MAINTAINER Gregorio Galante <gregogalante@gmail.com>
+
+# Create and set work directory
+ENV HOME /home/rails/app
+WORKDIR $HOME
+
+# Install dependencies and js engine
+RUN apt-get update -qq && apt-get install -y build-essential redis-server nodejs
+
+# Install gems
+ADD Gemfile* $HOME/
+RUN bundle install
+
+# Add the app code
+ADD . $HOME
+
+# Default command
+CMD ["rails", "server", "--binding", "0.0.0.0"]
