@@ -1,3 +1,5 @@
+# Dockerfile example for rails.
+
 # Base image (https://hub.docker.com/r/library/ruby/)
 FROM ruby:latest
 MAINTAINER Gregorio Galante <gregogalante@gmail.com>
@@ -24,4 +26,5 @@ RUN rails db:migrate
 RUN rails assets:precompile
 
 # Run server.
+CMD rm -rf tmp/pids/server.pid
 CMD rails server --binding 0.0.0.0
