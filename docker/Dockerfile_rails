@@ -40,8 +40,5 @@ ENV SECRET_KEY_BASE update_me_please
 # Install gems.
 RUN bundle install
 
-# Install gems.
-RUN bundle install
-
 # Start the server.
 CMD ["rails", "server", "--binding", "0.0.0.0"]
