@@ -26,5 +26,4 @@ RUN rails db:migrate
 RUN rails assets:precompile
 
 # Run server.
-CMD rm -rf tmp/pids/server.pid
 CMD rails server --binding 0.0.0.0
