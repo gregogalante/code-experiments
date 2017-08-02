@@ -1,24 +1,3 @@
-# Dockerfile commands:
-# - ADD : Copy files from the build context into the image.
-# - CMD : Run an instruction when the container is started.
-# - COPY : Copy files from the build context into the image. Require
-# an array with a source path and a dest path.
-# - ENTRYPOINT : Set an executable to be run when the container start. It
-# is often used to provide "starter" scripts that initialize variables and
-# services.
-# - ENV : Set environment variables inside the image.
-# - EXPOSE : Indicates to docker that the container will have a process
-# listening on a given port or ports.
-# - FROM : Sets the base image for the Dockerfile. Must be the first instruction of the
-# dockerfile.
-# - MANTEINER : Sets the author of the image.
-# - ONBUILD : Specifies an instruction to be executed later, when the image is used as a base layer
-# for a new image.
-# - RUN : Run the given instruction inside the container and commits the result.
-# - USER : Set the user used for every RUN, CMD or ENTRYPOINT command.
-# - VOLUME : Declared the specific directory to be a volume.
-# - WORKDIR : Set the working directory for every command.
-
 # Base image (https://hub.docker.com/r/library/ruby/)
 FROM ruby:latest
 MAINTAINER Gregorio Galante <gregogalante@gmail.com>
@@ -40,5 +19,9 @@ ENV SECRET_KEY_BASE update_me_please
 # Install gems.
 RUN bundle install
 
-# Start the server.
-CMD ["rails", "server", "--binding", "0.0.0.0"]
+# Initialize application.
+RUN rails db:migrate
+RUN rails assets:precompile
+
+# Run server.
+CMD rails server --binding 0.0.0.0
