@@ -1,22 +1,103 @@
 const http = require('http')
+const https = require('https')
+
+const Router = require('./Router')
 
 /**
  * Server.
- * @param {number} port
- * @param {Router} router
+ * @param {object} options.
  */
-const Server = function (port, router) {
-  this.port = port
-  this.router = router
+const Server = function (options) {
+  this.router = new Router()
+  this.logger = new Logger()
+  // define options
+  options = options || {}
+  if (typeof options !== 'object') {
+    throw new TypeError('Options must be an object')
+  }
+  // define server
+  const port = options.port || 9000
+  if (options.https) {
+    https.createServer(options.https, (req, res) => {
+      this.router.manage(req, res)
+    }).listen(port)
+  } else {
+    http.createServer((req, res) => {
+      this.router.manage(req, res)
+    }).listen(port)
+  }
+}
 
-  // initialize server
-  this.server = http.createServer()
-  this.server.listen(port)
+/**
+ * options().
+ * @param {string} path.
+ * @param {function} callback.
+ */
+Server.prototype.options = function (path, callback) {
+  this.router.add('OPTIONS', path, callback)
+}
 
-  // manage request
-  this.server.on('request', (req, res) => {
-    router.manageRequest(req, res)
-  })
+/**
+ * get().
+ * @param {string} path.
+ * @param {function} callback.
+ */
+Server.prototype.get = function (path, callback) {
+  this.router.add('GET', path, callback)
+}
+
+/**
+ * head().
+ * @param {string} path.
+ * @param {function} callback.
+ */
+Server.prototype.head = function (path, callback) {
+  this.router.add('HEAD', path, callback)
+}
+
+/**
+ * post().
+ * @param {string} path.
+ * @param {function} callback.
+ */
+Server.prototype.post = function (path, callback) {
+  this.router.add('POST', path, callback)
+}
+
+/**
+ * put().
+ * @param {string} path.
+ * @param {function} callback.
+ */
+Server.prototype.put = function (path, callback) {
+  this.router.add('PUT', path, callback)
+}
+
+/**
+ * delete().
+ * @param {string} path.
+ * @param {function} callback.
+ */
+Server.prototype.delete = function (path, callback) {
+  this.router.add('DELETE', path, callback)
+}
+
+/**
+ * trace().
+ * @param {string} path.
+ * @param {function} callback.
+ */
+Server.prototype.trace = function (path, callback) {
+  this.router.add('TRACE', path, callback)
+}
+
+/**
+ * connect().
+ * @param {string} path.
+ * @param {function} callback.
+ */
+Server.prototype.connect = function (path, callback) {
+  this.router.add('CONNECT', path, callback)
 }
 
 module.exports = Server
