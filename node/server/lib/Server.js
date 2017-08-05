@@ -8,20 +8,22 @@ const Router = require('./Router')
  * @param {object} options.
  */
 const Server = function (options) {
-  this.router = new Router()
   // define options
-  options = options || {}
+  this.options = options || {}
   if (typeof options !== 'object') {
     throw new TypeError('Options must be an object')
   }
+  // define router
+  const routerOptions = this.options.router || {}
+  this.router = new Router(routerOptions)
   // define server
-  const port = options.port || 9000
+  const port = this.options.port || 9000
   if (options.https) {
-    https.createServer(options.https, (req, res) => {
+    this.server = https.createServer(options.https, (req, res) => {
       this.router.manage(req, res)
     }).listen(port)
   } else {
-    http.createServer((req, res) => {
+    this.server = http.createServer((req, res) => {
       this.router.manage(req, res)
     }).listen(port)
   }

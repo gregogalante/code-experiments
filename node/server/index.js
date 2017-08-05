@@ -5,6 +5,18 @@ const server = new Server({
 })
 
 server.get('/', (req, res) => {
-  res.write('Hello world')
-  res.end()
+  res.send({
+    type: 'get'
+  })
+})
+
+server.post('/', (req, res) => {
+  req.on('data', (data) => {
+    console.log(data)
+  })
+  req.on('end', () => {
+    res.send({
+      type: 'body'
+    })
+  })
 })
