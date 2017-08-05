@@ -9,7 +9,6 @@ const Router = require('./Router')
  */
 const Server = function (options) {
   this.router = new Router()
-  this.logger = new Logger()
   // define options
   options = options || {}
   if (typeof options !== 'object') {
