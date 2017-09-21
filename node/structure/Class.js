@@ -1,5 +1,4 @@
 /**
- * Class.
  * Example of class structure.
  * @param {string} attribute
  */
@@ -8,7 +7,6 @@ const Class = function (attribute) {
 }
 
 /**
- * method()
  * Example of method.
  */
 Class.prototype.method = function () {
