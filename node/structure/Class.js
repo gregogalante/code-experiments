@@ -1,5 +1,9 @@
 /**
- * Example of class structure.
+ * @class Class
+ */
+
+/**
+ * Example of class constructor.
  * @param {string} attribute
  */
 const Class = function (attribute) {

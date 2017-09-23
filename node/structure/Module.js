@@ -1,13 +1,11 @@
 /**
- * Example of module.
+ * @module Module
  */
-const Module = function () {}
 
 /**
  * Example of method.
+ * @param {string} message
  */
-Module.prototype.method = function (message) {
+exports.method = function (message) {
   console.log(message)
 }
-
-module.exports = new Module()

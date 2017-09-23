@@ -4,16 +4,6 @@
  * what it does.
  */
 
-/**
- * All dependencies should be imported as const at the beginning of the file.
- * The order of imports should be:
- * - Node code modules.
- * - Node external modules.
- * - Class.
- * - Modules.
- * - Settings.
- * - Assets (images, text files, ecc).
- */
 const Class = require('./Class')
 const Module = require('./Module')
 const settings = require('./settings')
