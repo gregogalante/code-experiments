@@ -1,7 +1,5 @@
 /**
  * Boilerplate.
- * The main file of a directory should called index.js an contain a comment about
- * what it does.
  */
 
 const Class = require('./Class')
