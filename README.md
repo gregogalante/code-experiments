@@ -1,3 +1,3 @@
-# Mixture
+# Code Experiments
 
-Some code experiments with multiple program languages.
+Some experiments with multiple program languages to learn new things!
