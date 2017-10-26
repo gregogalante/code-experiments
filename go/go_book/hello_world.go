@@ -16,6 +16,6 @@ implements formatting for input and output.
 import "fmt"
 
 func main() {
-	// run hello world
+	// Run hello world
 	fmt.Println("Hello World")
 }
