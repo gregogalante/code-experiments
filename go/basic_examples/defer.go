@@ -9,7 +9,8 @@ package main
 import "fmt"
 
 func beautiful() {
-	fmt.Println("beautiful")
+	defer fmt.Println("full")
+	fmt.Println("beauti")
 }
 
 func main() {
