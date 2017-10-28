@@ -7,6 +7,9 @@ A slice is formed by specifying two indices, a low and high bound, separated by 
 a[low : high]
 
 This selects a half-open range which includes the first element, but excludes the last one.
+
+A slice does not store any data, it just describes a section of an underlying array.
+Changing the elements of a slice modifies the corresponding elements of its underlying array.
 */
 
 package main
