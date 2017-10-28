@@ -19,21 +19,21 @@ import "fmt"
 
 func main() {
 	// Normal for
-	sum := 0
+	var sum = 0
 	for i := 0; i < 10; i++ {
 		sum += i
 	}
 	fmt.Println(sum)
 
 	// For with init and post statement are optional
-	sum2 := 1
-	for ; sum2 < 1000; {
+	var sum2 = 1
+	for sum2 < 1000 {
 		sum2 += sum2
 	}
 	fmt.Println(sum2)
 
 	// While with for
-	sum3 := 1
+	var sum3 = 1
 	for sum3 < 1000 {
 		sum3 += sum3
 	}
