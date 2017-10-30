@@ -5,7 +5,6 @@ import (
 	"log"
 	"net/http"
 	"encoding/json"
-	"io/ioutil"
 )
 
 type helloWorldResponse struct {
@@ -28,16 +27,10 @@ func main() {
 }
 
 func helloWorldHandler(w http.ResponseWriter, r *http.Request) {
-	// read request body
-	body, err := ioutil.ReadAll(r.Body)
-	if err != nil {
-		http.Error(w, "Bad request", http.StatusBadRequest)
-		return
-	}
-
 	// read request json
 	var request helloWorldRequest
-	err = json.Unmarshal(body, &request)
+	decoder := json.NewDecoder(r.Body)
+	err := decoder.Decode(&request)
 	if err != nil {
 		fmt.Println(err)
 		http.Error(w, "Bad request", http.StatusBadRequest)
