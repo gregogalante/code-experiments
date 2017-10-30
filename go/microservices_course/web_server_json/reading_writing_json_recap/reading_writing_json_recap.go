@@ -27,7 +27,7 @@ type helloUserRequest struct {
 func helloUserHandler(w http.ResponseWriter, r *http.Request) {
 	// read request json
 	var request helloUserRequest
-	result := decodeRequestBody(w, r, request)
+	result := decodeRequestBody(w, r, &request)
 	if !result { return }
 
 	// create an interface used for the Marshal function
@@ -41,7 +41,7 @@ func helloUserHandler(w http.ResponseWriter, r *http.Request) {
 // Helpers:
 // //////////////////////////////////////////////////////////////////////
 
-func decodeRequestBody(w http.ResponseWriter, r *http.Request, request helloUserRequest) bool { // TODO: Dynamic request type
+func decodeRequestBody(w http.ResponseWriter, r *http.Request, request *helloUserRequest) bool { // TODO: Dynamic request type
 	decoder := json.NewDecoder(r.Body)
 
 	err := decoder.Decode(&request)
