@@ -28,15 +28,18 @@ func helloUserHandler(w http.ResponseWriter, r *http.Request) {
 	// read request json
 	var request helloUserRequest
 	var result bool
+	var name string
 	if r.Method == "GET" {
-		result = decodeRequestQuery(w, r, &request)
+		result = true
+		name = r.URL.Query().Get("name")
 	} else if r.Method == "POST" {
 		result = decodeRequestBody(w, r, &request)
+		name = request.Name
 	}
 	if !result { return }
-
+	
 	// create an interface used for the Marshal function
-	response := messageResponse{Message: "Hello " + request.Name}
+	response := messageResponse{Message: "Hello " + name}
 	// generate encoder cor the current response writer
 	encoder := json.NewEncoder(w)
 	// encode response
@@ -45,15 +48,6 @@ func helloUserHandler(w http.ResponseWriter, r *http.Request) {
 
 // Helpers:
 // //////////////////////////////////////////////////////////////////////
-
-func decodeRequestQuery(w http.ResponseWriter, r *http.Request, request interface{}) bool {
-	// query := r.URL.Query()
-	// fmt.Println(request)
-
-	// TODO
-
-	return true
-}
 
 func decodeRequestBody(w http.ResponseWriter, r *http.Request, request interface{}) bool {
 	decoder := json.NewDecoder(r.Body)
