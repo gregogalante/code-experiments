@@ -41,7 +41,7 @@ func helloUserHandler(w http.ResponseWriter, r *http.Request) {
 // Helpers:
 // //////////////////////////////////////////////////////////////////////
 
-func decodeRequestBody(w http.ResponseWriter, r *http.Request, request *helloUserRequest) bool { // TODO: Dynamic request type
+func decodeRequestBody(w http.ResponseWriter, r *http.Request, request interface{}) bool {
 	decoder := json.NewDecoder(r.Body)
 
 	err := decoder.Decode(&request)
