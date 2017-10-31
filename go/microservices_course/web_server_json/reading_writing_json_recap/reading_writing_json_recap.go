@@ -27,7 +27,12 @@ type helloUserRequest struct {
 func helloUserHandler(w http.ResponseWriter, r *http.Request) {
 	// read request json
 	var request helloUserRequest
-	result := decodeRequestBody(w, r, &request)
+	var result bool
+	if r.Method == "GET" {
+		result = decodeRequestQuery(w, r, &request)
+	} else if r.Method == "POST" {
+		result = decodeRequestBody(w, r, &request)
+	}
 	if !result { return }
 
 	// create an interface used for the Marshal function
@@ -40,6 +45,15 @@ func helloUserHandler(w http.ResponseWriter, r *http.Request) {
 
 // Helpers:
 // //////////////////////////////////////////////////////////////////////
+
+func decodeRequestQuery(w http.ResponseWriter, r *http.Request, request interface{}) bool {
+	// query := r.URL.Query()
+	// fmt.Println(request)
+
+	// TODO
+
+	return true
+}
 
 func decodeRequestBody(w http.ResponseWriter, r *http.Request, request interface{}) bool {
 	decoder := json.NewDecoder(r.Body)
