@@ -56,6 +56,7 @@ func newHelloWorldHandler() http.Handler {
 	return helloWorldHandler{}
 }
 
+// This function overrides the http ServeHTTP function to decode the request body.
 func (h validationHandler) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
 	var request helloWorldRequest
 	decoder := json.NewDecoder(r.Body)
@@ -70,6 +71,7 @@ func (h validationHandler) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
 	h.next.ServeHTTP(rw, r)
 }
 
+// This function overrides the http ServeHTTP function to code the response.
 func (h helloWorldHandler) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
 	response := helloWorldResponse{Message: "Hello " + name}
 
