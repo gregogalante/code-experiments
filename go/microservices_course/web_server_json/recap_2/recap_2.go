@@ -1,20 +1,3 @@
-/*
-######################################## THEORY ########################################
-########################################################################################
-
-This code is an example of the implementation of a custom Handler.
-
-The first thing to do to implement an Handler is to define a struct field
-that will implement the methods in the Handlers function.
-
-type validationHandler struct {
-	next http.Handler
-}
-
-The validationHandler has a reference to the next in the chain as it has the
-responsability for calling ServeHTTP or returning a response.
-*/
-
 package main
 
 import (
