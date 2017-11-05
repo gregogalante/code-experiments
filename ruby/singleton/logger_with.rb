@@ -1,7 +1,6 @@
 require 'singleton'
 
-# Logger class.
-class LibLogger
+class LoggerWith
 
   include Singleton
 

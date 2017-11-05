@@ -1,7 +1,3 @@
-/**
- * Boilerplate.
- */
-
 const Class = require('./Class')
 const Module = require('./Module')
 const settings = require('./settings')

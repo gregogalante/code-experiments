@@ -1,5 +1,4 @@
-# Logger class.
-class Logger
+class LoggerWithout
 
   def initialize
     @log = File.open('log.txt', 'a')

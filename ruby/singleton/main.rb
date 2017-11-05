@@ -1,6 +1,5 @@
 # Custom Singleton code.
-
-# Definition:
+# #############################################################################
 
 # In software engineering, the singleton pattern is a software design pattern that
 # restricts the instantiation of a class to one object. This is useful when exactly
@@ -9,8 +8,12 @@
 # or that restrict the instantiation to a certain number of objects. The term comes
 # from the mathematical concept of a singleton.
 
+# This code contains two sigleton examples with and without the singleton package.
+
+# #############################################################################
+
 require_relative './logger'
 require_relative './lib_logger'
 
-Logger.instance.log('message')
-LibLogger.instance.log('message')
+LoggerWithout.instance.log('message')
+LoggerWith.instance.log('message')
