@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Gradients</title>
+    <style>
+      body { margin: 0; }
+      #background {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg, #00b3e3, #253362);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="background"></div>
+    <script>
+
+      function setGradientBg(el, deg, colorOne, colorTwo) {
+        el.style.background = 'linear-gradient(' + deg + 'deg, ' + colorOne + ', ' + colorTwo + ')'
+      }
+
+      var backgroundElement = document.querySelector('#background')
+      var deg = 0
+
+      setInterval(function () {
+        setGradientBg(backgroundElement, deg, '#00b3e3', '#253362')
+        deg++
+      }, 50)
+
+    </script>
+  </body>
+</html>
