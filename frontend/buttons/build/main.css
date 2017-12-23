@@ -33,6 +33,8 @@ body {
   .btn-1:hover {
     background-color: white;
     color: #253362; }
+  .btn-1:active {
+    box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.5); }
 
 .btn-2 {
   color: white;
@@ -50,6 +52,8 @@ body {
     background-color: white;
     color: #253362;
     transition: background-color 0.1s ease-in 0s, color 0.1s ease-out 0.1s; }
+  .btn-2:active {
+    box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.5); }
 
 .btn-3 {
   color: white;
@@ -64,6 +68,8 @@ body {
   border: solid 1px white; }
   .btn-3:hover {
     background-color: rgba(255, 255, 255, 0.2); }
+  .btn-3:active {
+    box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.5); }
 
 .btn-4 {
   color: white;
@@ -96,3 +102,41 @@ body {
     .btn-4:hover:before {
       transform: translateY(0);
       transition: transform 0.2s ease-in 0s; }
+  .btn-4:active {
+    box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.5); }
+
+.btn-5 {
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  padding: 15px 25px;
+  font-family: 'PlayfairDisplay-Regular', sans-serif;
+  line-height: 1.3em;
+  letter-spacing: 0.1em;
+  text-align: center;
+  border: solid 1px white;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.1s ease-in 0.05s; }
+  .btn-5:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: -1;
+    transform: translateX(-100%);
+    border-top-right-radius: 100%;
+    transition: transform 0.1s ease-in 0s, border-top-right-radius 0s ease-in 0.1s; }
+  .btn-5:hover {
+    color: #253362;
+    transition: color 0.1s ease-in 0.05s; }
+    .btn-5:hover:before {
+      transform: translateX(0);
+      border-top-right-radius: 0;
+      transition: transform 0.1s ease-in 0s, border-top-right-radius 0.1s ease-in 0.1s; }
+  .btn-5:active {
+    box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.5); }
