@@ -1,43 +1,26 @@
 # Implementation of a reduc store using Ruby.
 #
-# Basic usage:
+# Usage:
 # counter_store = ReduxStore.new(reducer)
-# counter_store.dispatch({ type: 'increment' })
-#
-# Combine reducer usage:
-# root_reducer = ReduxStore.combine_reducers({ counter: counter_reducer, todos: todos_reducer })
-# counter_store = ReduxStore.new(root_reducer)
 # counter_store.dispatch({ type: 'increment' })
 
 # ReduxStore.
 class ReduxStore
   attr_reader :current_state
 
-  def initialize(reducer)
+  def initialize(reducer, initial_state = nil)
     @reducer = reducer
     @listeners = []
-    @current_state = nil
-    dispatch({})
+    @current_state = initial_state
   end
 
   def dispatch(action)
     @current_state = @reducer.call(@current_state, action)
-    @listeners.map(&:call)
+    @listeners.map { |l| l.call(@current_state) }
   end
 
   def subscribe(listener)
     @listeners.push(listener)
     -> { @listeners.delete(listener) }
-  end
-
-  def self.combine_reducers(reducers)
-    ->(state, action) {
-      state ||= {}
-
-      reducers.each_with_object({}) do |next_state, (key, reducer)|
-        next_state[key] = reducer.call(state[key], action)
-        next_state
-      end
-    }
   end
 end
